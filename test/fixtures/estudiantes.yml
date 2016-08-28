@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  plan_de_estudios: MyString
+  semestre: 1
+  bloqueo: false
+
+two:
+  nombre: MyString
+  plan_de_estudios: MyString
+  semestre: 1
+  bloqueo: false

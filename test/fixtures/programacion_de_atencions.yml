@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora_inicio: 2016-08-28 17:10:11
+  hora_final: 2016-08-28 17:10:11
+
+two:
+  hora_inicio: 2016-08-28 17:10:11
+  hora_final: 2016-08-28 17:10:11

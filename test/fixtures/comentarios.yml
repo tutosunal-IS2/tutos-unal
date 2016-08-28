@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contenido: MyString
+  date: 2016-08-28 17:20:57
+  voto: 1
+  Tutor_idTutor: 1
+
+two:
+  contenido: MyString
+  date: 2016-08-28 17:20:57
+  voto: 1
+  Tutor_idTutor: 1
