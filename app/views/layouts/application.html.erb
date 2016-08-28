@@ -53,18 +53,38 @@
 
             </div>
 
-
-            <!-- Nav Starts -->
+             <% if user_signed_in? %>
+                <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right scroll">
-                 <li class="active"><a href="#home">Home</a></li>
-                 <li ><a href="#about">About</a></li>
-                 <li ><a href="#works">Works</a></li>
-                 <li ><a href="#partners">Partners</a></li>
-                 <li ><a href="#contact">Contact</a></li>
+                <li ><a href="#about">About</a></li>
+                 <li><form action="/signout"  id="form1">
+  
+                     </form>
+                 <button type="submit" class="btn btn-outline-success" form="form1" value="Submit"><%= current_user.name if current_user.name %>(logout)</button> </li></li>
               </ul>
             </div>
             <!-- #Nav Ends -->
+             <% else %>
+              <!-- Nav Starts -->
+                 <div class="navbar-collapse  collapse">
+                  <ul class="nav navbar-nav navbar-right scroll">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li ><a href="#about">About</a></li>
+                    <li ><a href="#works">Works</a></li>
+                    <li ><a href="#partners">Partners</a></li>
+                    <li ><a href="#contact">Contact</a></li>
+                      <li><form action="/signin" method="get" id="form1">
+  
+                     </form>
+
+                     <button type="submit" class="btn btn-outline-success" form="form1" value="Submit">Google +</button> </li> 
+                    
+                  </ul>
+                 </div>
+            <!-- #Nav Ends -->
+               <% end %>
+            
 
           </div>
         </div>
