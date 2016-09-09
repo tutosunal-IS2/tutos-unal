@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
     reset_session
     session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Signed in!'
+    if current_user.admin?
+      redirect_to users_url, :notice => "Bienvenido : #{user.name}"
+    else
+      redirect_to root_url, :notice => "Bienvenido : #{user.name}"
+    end
   end
 
   def destroy

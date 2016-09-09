@@ -22,15 +22,17 @@
   <!-- gallery -->
   <link rel="stylesheet" href="http://thebootstrapthemes.com/live/thebootstrapthemes-photography/assets/gallery/blueimp-gallery.min.css">
 
-  
+
   <link rel="shortcut icon" href="http://thebootstrapthemes.com/live/thebootstrapthemes-photography/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="http://thebootstrapthemes.com/live/thebootstrapthemes-photography/images/favicon.ico" type="image/x-icon">
   <!--
   <link rel="stylesheet" href="http://thebootstrapthemes.com/live/thebootstrapthemes-photography/assets/style.css"> -->
-   <link rel="stylesheet" href="https://www.dropbox.com/s/zpvex9eivp8l3x0/style.css?dl=1"> 
-  
+   <link rel="stylesheet" href="https://www.dropbox.com/s/zpvex9eivp8l3x0/style.css?dl=1">
 
-  
+   <meta name="viewport" content="width=device-width,initial-scale=1" >
+
+
+
 
 
   </head>
@@ -45,7 +47,7 @@
           <div class="container">
             <div class="navbar-header">
               <!-- Logo Starts -->
-              <a class="navbar-brand" href="#home"><img src="https://www.dropbox.com/s/tfuguj9gsfyvv1p/unal_b.png?dl=1" alt="logo"></a>
+              <a class="navbar-brand" href="#home"><img src="https://www.dropbox.com/s/tfuguj9gsfyvv1p/unal_b.png?dl=1" alt="logo"></a> 
               <!-- #Logo Ends -->
 
 
@@ -60,15 +62,18 @@
 
              <% if user_signed_in? %>
                 <!-- Nav Starts -->
+
             <div class="navbar-collapse  collapse">
+
               <ul class="nav navbar-nav navbar-right scroll">
-                <li ><a href="#about">About</a></li>
-                 <li><form action="/signout"  id="form1">
-  
-                     </form>
-                 <button type="submit" class="btn btn-outline-success" form="form1" value="Submit"><%= current_user.name if current_user.name %>(logout)</button> </li></li>
+                 <li ><a href="#about">About</a></li>
+                 <li><form action="/signout"  id="form1"></form>
+                  <div class='btn-group btn-group-sm' style='display: inline-block; vertical-align: middle; float: none;'>
+                  <button type="submit" class="btn btn-outline-success" form="form1" value="Submit"><%= current_user.email if current_user.email %>(logout)</button>
+                </div></li>
               </ul>
             </div>
+
             <!-- #Nav Ends -->
              <% else %>
               <!-- Nav Starts -->
@@ -80,17 +85,16 @@
                     <li ><a href="#team">Equipo</a></li>
                     <!--<li ><a href="#partners">Partners</a></li>-->
                     <li ><a href="#contact">Contactenos</a></li>
-                      <li><form action="/signin" method="get" id="form1">
-  
-                     </form>
+                    <li><form action="/signin" method="get" id="form1"></form>
+                     <div class='btn-group btn-group-sm'>
+                     <button type="submit" class="btn btn-outline-success" form="form1" value="Submit">Google +</button>
+                     </div></li>
 
-                     <button type="submit" class="btn btn-outline-success" form="form1" value="Submit">Google +</button> </li> 
-                    
                   </ul>
                  </div>
             <!-- #Nav Ends -->
                <% end %>
-            
+
 
           </div>
         </div>
@@ -99,7 +103,7 @@
     </div>
 <!-- #Header Starts -->
     <!-- Footer Starts -->
-    
+
     <%= yield %>
 
     <div class="footer text-center spacer">

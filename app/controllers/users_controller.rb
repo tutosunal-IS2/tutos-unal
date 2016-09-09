@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :admin_only, :except => :show
   # GET /users
   # GET /users.json
   def index
@@ -10,6 +11,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    unless current_user.admin?
+      unless @user == current_user
+        redirect_to :back, :alert => "Access denied."
+      end
+    end
   end
 
   # GET /users/new
@@ -70,5 +77,19 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :name, :provider, :uid)
+    end
+
+    def admin_only
+      unless current_user.admin?
+        redirect_to root_url, :alert => "Access denied."
+      end
+    end
+
+    def secure_params
+      if @user == current_user
+        params.require(:user).permit(:email)
+      elsif current_user.admin?
+        params.require(:user).permit(:role)
+      end
     end
 end
